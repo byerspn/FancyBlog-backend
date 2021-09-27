@@ -17,7 +17,7 @@ problems (DELETE ME)
 
 ## Members 
 
-- Joshua Aguiar [jaaguil2](https://github.com/jaaguil2)
+- Joshua Aguiar github: [jaaguil2](https://github.com/jaaguil2)
 - Parker Byers  github name: 
 - Geraldo Grell github name: 
 - Jo-Ivan Melgarejo github name: 
