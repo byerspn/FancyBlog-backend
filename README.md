@@ -16,6 +16,9 @@ A list of the languages, libraries and frameworks used in your application. (DEL
 ## Problems
 problems (DELETE ME)
 
+## Things To Do
+- make components
+
 ## Members 
 
 - Joshua Aguiar github: [jaaguil2](https://github.com/jaaguil2)
