@@ -4,7 +4,6 @@
 - what the app does and why (DELETE ME)
 - need a screen shot (DELETE ME)
 
-
 ## Technologies
 A list of the languages, libraries and frameworks used in your application. (DELETE ME)
 
@@ -14,6 +13,9 @@ react router dom
 
 ## Problems
 problems (DELETE ME)
+
+## Things To Do
+- make components
 
 ## Members 
 
