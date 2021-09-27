@@ -10,8 +10,10 @@ A list of the languages, libraries and frameworks used in your application. (DEL
 ## Installation Instructions
 
 ### Install In Terminal
-- npm install
-- npm install react-router-dom
+```
+npm install
+npm install react-router-dom
+```
 
 ## Problems
 problems (DELETE ME)
