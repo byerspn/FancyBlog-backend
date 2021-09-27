@@ -8,8 +8,8 @@
 A list of the languages, libraries and frameworks used in your application. (DELETE ME)
 
 ## Installation Instructions
-npm i (fronted end)
-react router dom
+- npm i (fronted end)
+- react router dom
 
 ## Problems
 problems (DELETE ME)
