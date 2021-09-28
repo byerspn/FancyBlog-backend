@@ -19,14 +19,18 @@ npm install react-router-dom
 problems (DELETE ME)
 
 ## Things To Do
-- make components
+- new post button and functionality (Jo)
+- new comment button and functionality (Josh)
+- like/dislike buttons and functionality (Parker
+- nav (Geraldo)
+- link to heroku
 
 ## Members 
 
-- Joshua Aguiar github: [jaaguil2](https://github.com/jaaguil2)
-- Parker Byers  github name: [byerspn](https://github.com/byerspn)
-- Geraldo Grell github name: 
-- Jo-Ivan Melgarejo github name: 
+- Joshua Aguiar [jaaguil2](https://github.com/jaaguil2)
+- Parker Byers  [byerspn](https://github.com/byerspn)
+- Geraldo Grell [Jikjii](https://github.com/Jikjii)
+- Jo-Ivan Melgarejo [jo-ivan](https://github.com/Jo-Ivan)
 
 ## Contribution Guidlines
 ??? (DELETE ME)

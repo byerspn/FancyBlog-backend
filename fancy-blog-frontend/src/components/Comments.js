@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { APIURL } from '../config.js';
-
-
+import { useState, useEffect } from "react";
+import { Link, Redirect } from "react-router-dom";
+import { APIURL } from "../config.js";
 
 const Comments = ({match}) => {
 
@@ -67,21 +65,21 @@ const Comments = ({match}) => {
   }
 
   useEffect(() => {
-    const url = `${APIURL}/${match.params.id}`
+    const url = `${APIURL}/${match.params.id}`;
     fetch(url)
-      .then(response => response.json())
-      .then(data => setPost(data))
+      .then((response) => response.json())
+      .then((data) => setPost(data))
       .catch(() => {
-        setError(true)
-      })
+        setError(true);
+      });
   }, [match.params.id]);
 
   if (error) {
-    return <div>There was a problem getting the data.</div>
+    return <div>There was a problem getting the data.</div>;
   }
 
   if (!post) {
-    return <div>Loading...</div>
+    return <div>Loading...</div>;
   }
 
   if (postDeleted) {
@@ -99,9 +97,9 @@ const Comments = ({match}) => {
       <p>Likes: {post.likes}</p>
       <p>Dislikes: {post.dislikes}</p>
       <ul>
-          {post.comments.map((comment, idx) => (
-            <li key={idx}>{comment}</li>
-          ))}
+        {post.comments.map((comment, idx) => (
+          <li key={idx}>{comment}</li>
+        ))}
       </ul>
       <div>
         <button onClick={likePost} >like</button>
@@ -109,7 +107,7 @@ const Comments = ({match}) => {
         <button>New Comment</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Comments
+export default Comments;
