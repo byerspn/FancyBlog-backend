@@ -27,10 +27,10 @@ problems (DELETE ME)
 
 ## Members 
 
-- Joshua Aguiar github: [jaaguil2](https://github.com/jaaguil2)
-- Parker Byers  github name: [byerspn](https://github.com/byerspn)
-- Geraldo Grell github name: 
-- Jo-Ivan Melgarejo github name: 
+- Joshua Aguiar [jaaguil2](https://github.com/jaaguil2)
+- Parker Byers  [byerspn](https://github.com/byerspn)
+- Geraldo Grell [Jikjii](https://github.com/Jikjii)
+- Jo-Ivan Melgarejo [jo-ivan](https://github.com/Jo-Ivan)
 
 ## Contribution Guidlines
 ??? (DELETE ME)

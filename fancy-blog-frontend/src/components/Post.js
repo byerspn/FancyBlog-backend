@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
-const Post = ({post}) => {
-
+const Post = ({ post }) => {
   return (
     <div>
       <p>{post.text}</p>
@@ -11,7 +10,7 @@ const Post = ({post}) => {
         <Link to={`/${post._id}`}>Comments</Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;
