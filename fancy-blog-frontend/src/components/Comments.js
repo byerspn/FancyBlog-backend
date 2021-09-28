@@ -36,14 +36,13 @@ const Comments = ({match}) => {
       fetch(`${APIURL}/${post._id}`, {
         method: 'DELETE', // put updates all keys in object
         mode: 'cors' // cors
-      }
+      })
         .then(response => response.json())
         .then(responseJSON => {
           // console.log('Post successfully deleted: ',responseJSON)  //log it cus why not
           setPostDeleted(true)
         })
         .catch((error) => {console.error('There was an issue updating the post: ', error)})
-      )
     } else {
       let updatedPost = post
       updatedPost.dislikes = updatedPost.dislikes + 1
