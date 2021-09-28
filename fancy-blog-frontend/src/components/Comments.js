@@ -1,12 +1,12 @@
-
 import { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { APIURL } from '../config.js';
 
+// Components
 import NewComment from './NewComment.js'
 
 
-const Comments = ({match}) => {
+const Comments = ({ match }) => {
 
   const [error, setError] = useState(false)
   const [post, setPost] = useState(null)
@@ -34,6 +34,7 @@ const Comments = ({match}) => {
       })
       .catch((error) => {console.error('There was an issue updating the post: ', error)})
   }
+
   function dislikePost () {
     if ((post.likes + post.dislikes > 10) && (post.dislikes > post.likes * 2)) {
       fetch(`${APIURL}/${post._id}`, {
@@ -94,8 +95,8 @@ const Comments = ({match}) => {
   if (postDeleted) {
     return (
       <div>
-        <p>This post has been deleted for having too poor of a like:dislike ratio.</p>
-        <Link to="/"><p>Return home</p></Link>
+        <p>This post has been deleted for having too poor of a <em>like:dislike</em> ratio.</p>
+        <Link to="/">Return home</Link>
       </div>
     )
   }
@@ -103,16 +104,14 @@ const Comments = ({match}) => {
   return (
     <div>
       <p>{post.text}</p>
-      <p>Likes: {post.likes}</p>
-      <p>Dislikes: {post.dislikes}</p>
+      <p>Yays: {post.likes}</p>
+      <p>Nays: {post.dislikes}</p>
       <ul>
         {post.comments.map((comment, idx) => (
           <li key={idx}>{comment}</li>
         ))}
       </ul>
       <div>
-        <button>likes</button>
-        <button>dislikes</button>
         <button onClick={likePost} >like</button>
         <button onClick={dislikePost} >dislike</button>
         <button onClick={handleComment}>New Comment</button>

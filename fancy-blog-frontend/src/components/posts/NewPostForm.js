@@ -21,7 +21,7 @@ const NewPostForm = ({ addPost }) => {
     })
       .then(res => res.json())
       .then(data => setCreateId(data._id))
-      .catch(() => console.error);
+      .catch((error) => { console.error('There was an issue creating a new post: ', error) });
   };
 
   if (createId) {

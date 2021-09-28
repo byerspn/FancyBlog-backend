@@ -26,7 +26,7 @@ const NewComment = ({post}) => {
       body: JSON.stringify(putComment)
     })
       .then(res => res.json())
-      .catch(() => console.error)
+      .catch((error) => { console.error('There was an issue updating the post: ', error) })
   };
 
   return (
