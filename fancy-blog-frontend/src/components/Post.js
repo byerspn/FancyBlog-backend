@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom'
 
 const Post = ({post}) => {
 
-  console.log(post)
-
   return (
     <div>
       <p>{post.text}</p>
