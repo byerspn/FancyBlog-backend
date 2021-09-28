@@ -28,20 +28,16 @@ function App() {
     setPosts(updatedPostList);
   };
 
-  console.log(posts);
-
   return (
     <div>
       <header>
         <Title />
       </header>
       <nav>
-        <Link to="/new">
-          <p>Add New Post</p>
-        </Link>
+        <Link to="/new">Add New Post</Link>
       </nav>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" render={() => <Home posts={posts} />} />
         <Route path="/new" render={() => <NewPostForm addPost={addPost} />} />
         <Route exact path="/:id" component={Comments} />
       </Switch>

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useHistory } from "react-router";
+import { Redirect } from "react-router";
 import { APIURL } from "../../config";
 
-function NewPostForm({ addPost }) {
-  const [text, setText] = useState("");
+const NewPostForm = ({ addPost }) => {
 
-  // const history = useHistory();
+  const [text, setText] = useState("");
+  const [createId, setCreateId] = useState(null)
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -18,12 +18,15 @@ function NewPostForm({ addPost }) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newPost)
-    }).then(() => {
-      console.log("New post added");
-    });
-
-    // history.push("/");
+    })
+      .then(res => res.json())
+      .then(data => setCreateId(data._id))
+      .catch(() => console.error);
   };
+
+  if (createId) {
+    return <Redirect to={`/${createId}`} />
+  }
 
   return (
     <div>

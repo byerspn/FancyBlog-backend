@@ -1,22 +1,22 @@
-import { useState } from "react"
-import { APIURL } from "../config"
+import { useState } from "react";
+import { APIURL } from "../config";
 
 const NewComment = ({post}) => {
 
-  const [comment, setComment] = useState('')
+  const [comment, setComment] = useState('');
 
   const handleSubmit = (event) => {
 
     if (comment.length === 0) {
       event.preventDefault()
       return false
-    }
+    };
 
     const putComment = {
       comments: [...post.comments, comment]
-    }
+    };
 
-    const url = `${APIURL}/${post._id}`
+    const url = `${APIURL}/${post._id}`;
 
     fetch(url, {
       method: 'PUT',
@@ -27,12 +27,12 @@ const NewComment = ({post}) => {
     })
       .then(res => res.json())
       .catch(() => console.error)
-  }
+  };
 
   const handleChange = (event) => {
-    event.persist()
-    setComment(event.target.value)
-  }
+    event.persist();
+    setComment(event.target.value);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -45,6 +45,6 @@ const NewComment = ({post}) => {
       <button type="submit">Submit</button>
     </form>
   )
-}
+};
 
-export default NewComment
+export default NewComment;
