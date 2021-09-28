@@ -30,9 +30,9 @@ function App() {
         <Link to="/new">Add New Post</Link>
       </nav>
       <Switch>
-        <Route exact path="/" render={() => <Home posts={posts} setPosts={setPosts} />} />
-        <Route path="/new" render={() => <NewPostForm posts={posts} setPosts={setPosts} />} />
-        <Route exact path="/:id" component={Comments} />
+        <Route exact path="/" render={ () => <Home posts={ posts } setPosts={ setPosts } /> } />
+        <Route path="/new" render={ () => <NewPostForm posts={ posts } setPosts={ setPosts } /> } />
+        <Route exact path="/:id" render={ ({ match }) => <Comments match={ match } posts={ posts } setPosts={ setPosts } />} />
       </Switch>
     </div>
   );
