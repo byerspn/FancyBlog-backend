@@ -19,7 +19,7 @@ npm install react-router-dom
 problems (DELETE ME)
 
 ## Things To Do
-- clean up buttons
+- clean up buttons (josh)
 - after new post, go to either home or that post(show)
 - the whole nav bar is selectable?
 - link to heroku
