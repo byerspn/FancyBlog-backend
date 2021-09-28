@@ -1,11 +1,16 @@
-import { useState, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
-import { APIURL } from "../config.js";
+
+import { useState, useEffect } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { APIURL } from '../config.js';
+
+import NewComment from './NewComment.js'
+
 
 const Comments = ({match}) => {
 
   const [error, setError] = useState(false)
   const [post, setPost] = useState(null)
+  const [newComment, setNewComment] = useState(false)
   const [postDeleted, setPostDeleted] = useState(false)
 
   function likePost () {
@@ -70,9 +75,13 @@ const Comments = ({match}) => {
       .then((response) => response.json())
       .then((data) => setPost(data))
       .catch(() => {
-        setError(true);
-      });
-  }, [match.params.id]);
+        setError(true)
+      })
+  }, [match.params.id])
+
+  const handleComment = () => {
+    setNewComment(true)
+  }
 
   if (error) {
     return <div>There was a problem getting the data.</div>;
@@ -102,9 +111,12 @@ const Comments = ({match}) => {
         ))}
       </ul>
       <div>
+        <button>likes</button>
+        <button>dislikes</button>
         <button onClick={likePost} >like</button>
         <button onClick={dislikePost} >dislike</button>
-        <button>New Comment</button>
+        <button onClick={handleComment}>New Comment</button>
+        {!newComment ? null : <NewComment post={post} />}
       </div>
     </div>
   );
