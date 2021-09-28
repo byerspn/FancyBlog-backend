@@ -29,21 +29,21 @@ const NewComment = ({post}) => {
       .catch(() => console.error)
   };
 
-  const handleChange = (event) => {
-    event.persist();
-    setComment(event.target.value);
-  };
-
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="newComment">New Comment:</label>
-      <input 
-        value={comment}
-        onChange={handleChange}
-        id="newComment"
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <div>
+      <h2>New Comment</h2>
+      <form onSubmit={handleSubmit}>
+        <textarea 
+          type="text"
+          id="newComment"
+          rows="3"
+          cols="30"
+          onChange={(e) => setComment(e.target.value)}
+        />
+        <br/>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   )
 };
 
