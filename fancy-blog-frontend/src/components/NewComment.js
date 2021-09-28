@@ -4,7 +4,6 @@ import { APIURL } from "../config"
 const NewComment = ({post}) => {
 
   const [comment, setComment] = useState('')
-  const [error, setError] = useState(false)
 
   const handleSubmit = (event) => {
 
@@ -27,16 +26,12 @@ const NewComment = ({post}) => {
       body: JSON.stringify(putComment)
     })
       .then(res => res.json())
-      .catch(() => setError(true))
+      .catch(() => console.error)
   }
 
   const handleChange = (event) => {
     event.persist()
     setComment(event.target.value)
-  }
-
-  if (error) {
-    return <div>Error on new comment.</div>
   }
 
   return (
