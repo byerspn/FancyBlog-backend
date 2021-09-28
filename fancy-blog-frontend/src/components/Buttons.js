@@ -78,8 +78,8 @@ const Buttons = ({ post, posts, setPosts }) => {
 
   return (
     <div>
-      <button onClick={likePost} >Yays: {likes}</button>
-      <button onClick={dislikePost} >Nays: {dislikes}</button>
+      <button onClick={likePost} >{`Yays: ${likes}`}</button>
+      <button onClick={dislikePost} >{`Nays: ${dislikes}`}</button>
     </div>
   );
 };
