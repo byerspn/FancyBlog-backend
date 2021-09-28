@@ -1,0 +1,10 @@
+.main-footer {
+    color: grey;
+    background-color: #f2f7f7;
+    padding-top: 3em;
+    position: relative;
+    width: 100%;
+}
+.col-sm {
+    text-align: center;
+}
