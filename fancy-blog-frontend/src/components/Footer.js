@@ -8,29 +8,29 @@ const Footer = () => {
                 <div className="row">
 
                     <div className="col">
-                        <h4>FANCY BLOG INC</h4>
+                        <h4>About</h4>
                         <ul className="list-unstyled">
-                            <li>999-999-9999</li>
-                            <li>United States</li>
-                            <li>123 Street S</li>
+                            <li>blog</li>
+                            <li>about</li>
+                            <li>careers</li>
                         </ul>
                     </div>
                     
                     <div className="col">
-                        <h4>STUFF</h4>
+                        <h4>Help</h4>
                         <ul className="list-unstyled">
-                            <li>999-999-9999</li>
-                            <li>United States</li>
-                            <li>123 Street S</li>
+                            <li>site rules</li>
+                            <li>help center</li>
+                            <li>contact us</li>
                         </ul>
                     </div>
 
                     <div className="col">
-                        <h4>ANOTHER STUFF</h4>
+                        <h4>tools</h4>
                         <ul className="list-unstyled">
-                            <li>999-999-9999</li>
-                            <li>United States</li>
-                            <li>123 Street S</li>
+                            <li>fancy blog for iPhone</li>
+                            <li>fancy blog for android</li>
+                            <li>fancyblog@gmail.com</li>
                         </ul>
                     </div>
                 </div>

@@ -47,7 +47,7 @@ function App() {
     <ReactBootStrap.Navbar.Brand href="/">Fancy Blog</ReactBootStrap.Navbar.Brand>
     <ReactBootStrap.Nav className="me-auto">
       <ReactBootStrap.Nav.Link href="/">Home</ReactBootStrap.Nav.Link>
-      <ReactBootStrap.Nav.Link href="/">Random</ReactBootStrap.Nav.Link>
+      <ReactBootStrap.Nav.Link href="/about">Random</ReactBootStrap.Nav.Link>
       <ReactBootStrap.Nav.Link href="/About">About</ReactBootStrap.Nav.Link>
     </ReactBootStrap.Nav>
     </ReactBootStrap.Container>
@@ -58,6 +58,7 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/new" render={() => <NewPostForm addPost={addPost} />} />
         <Route exact path="/:id" component={Comments} />
+        <Route exact path="/about" component={About} />
       </Switch>
       </div>
 
