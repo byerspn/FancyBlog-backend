@@ -31,6 +31,25 @@ const Comments = ({match}) => {
       .catch((error) => {console.error('There was an issue updating the post: ', error)})
   }
   function dislikePost () {
+    if ((post.likes + post.dislikes > 10) || (post.dislikes > post.likes * 2)) {
+      fetch(`${APIURL}/${post._id}`, {
+        method: 'DELETE', // put updates all keys in object
+      mode: 'cors', // cors
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'application/json'
+        },
+      redirect: 'follow', 
+      referrerPolicy: 'no-referrer', 
+      body: JSON.stringify(updatedPost)
+      })
+        .then(response => response.json())
+        .then(responseJSON => {
+          setPost(responseJSON)
+          // console.log('Post successfully updated: ',responseJSON)  //log it cus why not
+        })
+        .catch((error) => {console.error('There was an issue updating the post: ', error)})
+    }
     let updatedPost = post
     updatedPost.dislikes = updatedPost.dislikes + 1
     fetch(`${APIURL}/${post._id}`, {
