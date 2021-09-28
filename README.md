@@ -19,7 +19,7 @@ npm install react-router-dom
 problems (DELETE ME)
 
 ## Things To Do
-- new post button and functionality
+- new post button and functionality (Josh)
 - new comment button and functionality
 - like/dislike buttons and functionality (Parker
 - nav (Geraldo)
