@@ -17,16 +17,9 @@ function App() {
     const url = `${APIURL}`;
     fetch(url)
       .then((res) => res.json())
-      .then((json) => {
-        setPosts(json);
-      })
-      .catch(console.error);
+      .then((json) => setPosts(json))
+      .catch((error) => { console.error('There was an issue getting the posts: ', error) });
   }, []);
-
-  const addPost = (post) => {
-    const updatedPostList = [...posts, post];
-    setPosts(updatedPostList);
-  };
 
   return (
     <div>
@@ -37,12 +30,12 @@ function App() {
         <Link to="/new">Add New Post</Link>
       </nav>
       <Switch>
-        <Route exact path="/" render={() => <Home posts={posts} />} />
-        <Route path="/new" render={() => <NewPostForm addPost={addPost} />} />
+        <Route exact path="/" render={() => <Home posts={posts} setPosts={setPosts} />} />
+        <Route path="/new" render={() => <NewPostForm posts={posts} setPosts={setPosts} />} />
         <Route exact path="/:id" component={Comments} />
       </Switch>
     </div>
   );
-}
+};
 
 export default App;

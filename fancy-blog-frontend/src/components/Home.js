@@ -1,16 +1,14 @@
 import Post from './Post.js';
 
-const Home = ({ posts }) => {
+const Home = ({ posts, setPosts }) => {
 
   return (
     <ul>
-      {posts.map(post => (
-        <li key={post._id}>
-          <Post post={post} />
-        </li>
+      {posts.map((post, idx) => (
+          <Post key={idx} post={post} setPosts={setPosts} />
       ))}
     </ul>
-  )
+  );
 };
 
 export default Home;

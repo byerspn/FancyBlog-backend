@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { APIURL } from '../config.js';
 
 const Buttons = ({ post }) => {
@@ -60,10 +60,11 @@ const Buttons = ({ post }) => {
 
   if (postDeleted) {
     return (
-      <div>
-        <p>This post has been deleted for having too poor of a <em>like:dislike</em> ratio.</p>
-        <Link to="/">Return home</Link>
-      </div>
+      <Redirect to="/" />
+      // <div>
+      //   <p>This post has been deleted for having too poor of a <em>like:dislike</em> ratio.</p>
+      //   <Link push to="/">Return home</Link>
+      // </div>
     )
   }  
 
