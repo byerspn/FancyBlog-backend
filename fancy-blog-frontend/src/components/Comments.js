@@ -9,6 +9,28 @@ const Comments = ({match}) => {
   const [error, setError] = useState(false)
   const [post, setPost] = useState(null)
 
+  function likePost () {
+    let updatedPost = post
+    updatedPost.likes = updatedPost.likes + 1
+    fetch(`${APIURL}/${post._id}`, {
+      method: 'PUT', // put updates all keys in object
+    mode: 'cors', // cors
+    cache: 'no-cache',
+    headers: {
+      'Content-Type': 'application/json'
+      },
+    redirect: 'follow', 
+    referrerPolicy: 'no-referrer', 
+    body: JSON.stringify(updatedPost)
+    })
+      .then(response => response.json())
+      .then(responseJSON => {
+        setPost(responseJSON)
+        // console.log('Post successfully updated: ',responseJSON)  //log it cus why not
+      })
+      .catch((error) => {console.error('There was an issue updating the post: ', error)})
+  }
+
   useEffect(() => {
     const url = `${APIURL}/${match.params.id}`
     fetch(url)
@@ -30,14 +52,15 @@ const Comments = ({match}) => {
   return (
     <div>
       <p>{post.text}</p>
+      <p>Likes: {post.likes}</p>
       <ul>
           {post.comments.map((comment, idx) => (
             <li key={idx}>{comment}</li>
           ))}
       </ul>
       <div>
-        <button>likes</button>
-        <button>dislikes</button>
+        <button onClick={likePost} >like</button>
+        <button>dislike</button>
         <button>New Comment</button>
       </div>
     </div>
