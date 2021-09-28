@@ -5,7 +5,7 @@ import { APIURL } from "../../config";
 function NewPostForm({ addPost }) {
   const [text, setText] = useState("");
 
-  const history = useHistory();
+  // const history = useHistory();
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ function NewPostForm({ addPost }) {
       console.log("New post added");
     });
 
-    history.push("/");
+    // history.push("/");
   };
 
   return (
