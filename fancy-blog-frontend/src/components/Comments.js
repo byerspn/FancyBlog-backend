@@ -8,20 +8,21 @@ const Comments = ({match}) => {
 
   const [error, setError] = useState(false)
   const [post, setPost] = useState(null)
+  const [postDeleted, setPostDeleted] = useState(false)
 
   function likePost () {
     let updatedPost = post
     updatedPost.likes = updatedPost.likes + 1
     fetch(`${APIURL}/${post._id}`, {
       method: 'PUT', // put updates all keys in object
-    mode: 'cors', // cors
-    cache: 'no-cache',
-    headers: {
-      'Content-Type': 'application/json'
+      mode: 'cors', // cors
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'application/json'
       },
-    redirect: 'follow', 
-    referrerPolicy: 'no-referrer', 
-    body: JSON.stringify(updatedPost)
+      redirect: 'follow', 
+      referrerPolicy: 'no-referrer', 
+      body: JSON.stringify(updatedPost)
     })
       .then(response => response.json())
       .then(responseJSON => {
@@ -31,9 +32,23 @@ const Comments = ({match}) => {
       .catch((error) => {console.error('There was an issue updating the post: ', error)})
   }
   function dislikePost () {
-    if ((post.likes + post.dislikes > 10) || (post.dislikes > post.likes * 2)) {
+    if ((post.likes + post.dislikes > 10) && (post.dislikes > post.likes * 2)) {
       fetch(`${APIURL}/${post._id}`, {
         method: 'DELETE', // put updates all keys in object
+        mode: 'cors' // cors
+      }
+        .then(response => response.json())
+        .then(responseJSON => {
+          // console.log('Post successfully deleted: ',responseJSON)  //log it cus why not
+          setPostDeleted(true)
+        })
+        .catch((error) => {console.error('There was an issue updating the post: ', error)})
+      )
+    } else {
+      let updatedPost = post
+      updatedPost.dislikes = updatedPost.dislikes + 1
+      fetch(`${APIURL}/${post._id}`, {
+        method: 'PUT', // put updates all keys in object
       mode: 'cors', // cors
       cache: 'no-cache',
       headers: {
@@ -50,25 +65,6 @@ const Comments = ({match}) => {
         })
         .catch((error) => {console.error('There was an issue updating the post: ', error)})
     }
-    let updatedPost = post
-    updatedPost.dislikes = updatedPost.dislikes + 1
-    fetch(`${APIURL}/${post._id}`, {
-      method: 'PUT', // put updates all keys in object
-    mode: 'cors', // cors
-    cache: 'no-cache',
-    headers: {
-      'Content-Type': 'application/json'
-      },
-    redirect: 'follow', 
-    referrerPolicy: 'no-referrer', 
-    body: JSON.stringify(updatedPost)
-    })
-      .then(response => response.json())
-      .then(responseJSON => {
-        setPost(responseJSON)
-        // console.log('Post successfully updated: ',responseJSON)  //log it cus why not
-      })
-      .catch((error) => {console.error('There was an issue updating the post: ', error)})
   }
 
   useEffect(() => {
@@ -87,6 +83,15 @@ const Comments = ({match}) => {
 
   if (!post) {
     return <div>Loading...</div>
+  }
+
+  if (postDeleted) {
+    return (
+      <div>
+        <p>This post has been deleted for having too poor of a like:dislike ratio.</p>
+        <Link to="/"><p>Return home</p></Link>
+      </div>
+    )
   }
 
   return (
