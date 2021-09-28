@@ -23,10 +23,9 @@ npm i
 problems (DELETE ME)
 
 ## Things To Do
-- new post button and functionality (Jo)
-- new comment button and functionality (Josh)
-- like/dislike buttons and functionality (Parker
-- nav (Geraldo)
+- clean up buttons (josh)
+- after new post, go to either home or that post(show)
+- the whole nav bar is selectable?
 - link to heroku
 
 ## Members 
