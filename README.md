@@ -22,12 +22,6 @@ npm i
 ## Problems
 problems (DELETE ME)
 
-## Things To Do
-- clean up buttons (josh)
-- after new post, go to either home or that post(show)
-- the whole nav bar is selectable?
-- link to heroku
-
 ## Members 
 - Joshua Aguiar [jaaguil2](https://github.com/jaaguil2)
 - Parker Byers  [byerspn](https://github.com/byerspn)
