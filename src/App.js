@@ -5,7 +5,6 @@ import { APIURL } from "./config";
 import "./App.css"
 
 // Components
-// import Title from './components/Title'
 import Home from './components/Home'
 import Comments from './components/Comments';
 import About from './components/About';
@@ -13,7 +12,8 @@ import Footer from './components/Footer';
 import NewPostForm from "./components/posts/NewPostForm.js";
 
 // Style
-import * as ReactBootStrap from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap'
+import { Navbar, Nav } from 'react-bootstrap';
 import "./App.css";
 
 function App() {
@@ -31,43 +31,41 @@ function App() {
   return (
     <div className="page-container">
       <div className="content-wrap">
-        <ReactBootStrap.Navbar bg="dark" variant="dark">
-          <ReactBootStrap.Container>
-            <ReactBootStrap.Navbar.Brand href="/">
-              Fancy Blog
-            </ReactBootStrap.Navbar.Brand>
-            <ReactBootStrap.Nav className="me-auto">              
-              <ReactBootStrap.Nav.Link href="/about">
-                Random
-              </ReactBootStrap.Nav.Link>
-              <ReactBootStrap.Nav.Link href="/new">
-                Add New Post
-              </ReactBootStrap.Nav.Link>
-              <ReactBootStrap.Nav.Link href="/About">
-                About
-              </ReactBootStrap.Nav.Link>
-            </ReactBootStrap.Nav>
-          </ReactBootStrap.Container>
-        </ReactBootStrap.Navbar>      
+        <Navbar bg="dark" variant="dark">
+          <LinkContainer to="/">
+            <Navbar.Brand>Fancy Blog</Navbar.Brand>
+          </LinkContainer>
+          <Nav className="me-auto">
+            <LinkContainer to="/random">
+              <Nav.Link>Random</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/new">
+              <Nav.Link>Add New Post</Nav.Link>
+            </LinkContainer>
+              <LinkContainer to="/about">
+            <Nav.Link>About</Nav.Link>
+            </LinkContainer>
+          </Nav>
+        </Navbar>
         <Switch>
-          <Route 
-            exact path="/" 
-            render={ () => 
+          <Route
+            exact path="/"
+            render={() =>
               <Home posts={posts} setPosts={setPosts} />
             }
           />
-          <Route 
-            exact path="/new" 
-            render={ () => 
+          <Route
+            exact path="/new"
+            render={() =>
               <NewPostForm posts={posts} setPosts={setPosts} />
             }
           />
-          <Route 
-            exact path="/:id" 
-            render={ ({ match }) => 
-              <Comments 
-                match={match} 
-                posts={posts} 
+          <Route
+            exact path="/:id"
+            render={({ match }) =>
+              <Comments
+                match={match}
+                posts={posts}
                 setPosts={setPosts} />
             }
           />
