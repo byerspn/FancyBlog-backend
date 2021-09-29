@@ -36,12 +36,12 @@ function App() {
             <ReactBootStrap.Navbar.Brand href="/">
               Fancy Blog
             </ReactBootStrap.Navbar.Brand>
-            <ReactBootStrap.Nav className="me-auto">
-              <ReactBootStrap.Nav.Link href="/">
-                Home
-              </ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav className="me-auto">              
               <ReactBootStrap.Nav.Link href="/about">
                 Random
+              </ReactBootStrap.Nav.Link>
+              <ReactBootStrap.Nav.Link href="/new">
+                Add New Post
               </ReactBootStrap.Nav.Link>
               <ReactBootStrap.Nav.Link href="/About">
                 About
