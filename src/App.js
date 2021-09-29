@@ -30,13 +30,26 @@ function App() {
   }, []);
 
   return (
-    <div className="page-container">
-      <div className="content-wrap">
-        <Navbar bg="dark" variant="dark">
+    <div>
+      <div>
+        <Navbar 
+          className="p-2"
+          bg="dark" 
+          variant="dark" 
+          sticky="top" 
+        >
           <LinkContainer to="/">
-            <Navbar.Brand>Fancy Blog</Navbar.Brand>
+            <Navbar.Brand 
+              className="
+                border 
+                border-white 
+                rounded 
+                p-1
+                ">
+              Ventilation System Anonymous
+            </Navbar.Brand>
           </LinkContainer>
-          <Nav className="me-auto">
+          <Nav className="">
             <LinkContainer to="/random">
               <Nav.Link>Random</Nav.Link>
             </LinkContainer>
@@ -45,7 +58,7 @@ function App() {
             </LinkContainer>
             <LinkContainer to="/about">
               <Nav.Link>About</Nav.Link>
-            </LinkContainer>
+            </LinkContainer>            
           </Nav>
         </Navbar>
         <Switch>
