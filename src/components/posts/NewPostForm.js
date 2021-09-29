@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Redirect } from "react-router";
 import { APIURL } from "../../config";
 
+// Style
 import { Button, FloatingLabel, Form, Container } from "react-bootstrap";
 
 const NewPostForm = ({ posts, setPosts }) => {

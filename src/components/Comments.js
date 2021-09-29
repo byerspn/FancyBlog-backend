@@ -6,7 +6,15 @@ import NewComment from "./NewComment.js";
 import Buttons from "./Buttons.js";
 
 // Style
-import { Button, Card, Container, ButtonToolbar, ButtonGroup, ListGroup, ListGroupItem } from "react-bootstrap";
+import { 
+  Button, 
+  Card, 
+  Container, 
+  ButtonToolbar, 
+  ButtonGroup, 
+  ListGroup, 
+  ListGroupItem 
+} from "react-bootstrap";
 
 const Comments = ({ match, posts, setPosts }) => {
   const [error, setError] = useState(false);
@@ -30,11 +38,11 @@ const Comments = ({ match, posts, setPosts }) => {
 
   if (error) {
     return <div>There was a problem getting the data.</div>;
-  }
+  };
 
   if (!post) {
     return <div>Loading...</div>;
-  }
+  };
 
   return (
     <Container fluid>
@@ -51,13 +59,11 @@ const Comments = ({ match, posts, setPosts }) => {
                 New Comment
               </Button>
             </ButtonGroup>
-            <ButtonGroup>
-              <Buttons 
-                post={post} 
-                posts={posts} 
-                setPosts={setPosts} 
-              />
-            </ButtonGroup>
+            <Buttons 
+              post={post} 
+              posts={posts} 
+              setPosts={setPosts} 
+            />
           </ButtonToolbar>
           {!newComment ? null : <NewComment post={post} setPost={setPost} setNewComment={setNewComment} />}
           <hr />

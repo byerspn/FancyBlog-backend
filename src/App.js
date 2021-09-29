@@ -15,6 +15,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Container } from "react-bootstrap";
 
 function App() {
+  
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {

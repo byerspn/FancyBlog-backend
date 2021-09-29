@@ -1,5 +1,3 @@
-import { Link, Redirect } from "react-router-dom";
-
 // Components
 import Buttons from "./Buttons";
 
@@ -28,13 +26,11 @@ const Post = ({ post, posts, setPosts }) => {
               </Button>
             </LinkContainer>
           </ButtonGroup>
-          <ButtonGroup>
-            <Buttons 
-              post={post} 
-              posts={posts} 
-              setPosts={setPosts} 
-            />
-          </ButtonGroup>
+          <Buttons 
+            post={post} 
+            posts={posts} 
+            setPosts={setPosts} 
+          />
         </ButtonToolbar>
       </Card.Body>
     </Card>
