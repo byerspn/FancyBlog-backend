@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Redirect } from "react-router";
 import { APIURL } from "../../config";
 
-const NewPostForm = ({ posts, setPosts }) => {
+import { Button, FloatingLabel, Form, Container } from "react-bootstrap";
 
+const NewPostForm = ({ posts, setPosts }) => {
   const [newText, setNewText] = useState("");
   const [createId, setCreateId] = useState(null);
 
@@ -18,27 +19,35 @@ const NewPostForm = ({ posts, setPosts }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newPost)
     })
-      .then(res => res.json())
-      .then(data => {
-        setPosts([...posts, data])
-        setCreateId(data._id)
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts([...posts, data]);
+        setCreateId(data._id);
       })
-      .catch((error) => { console.error('There was an issue creating a new post: ', error) });
+      .catch((error) => {
+        console.error("There was an issue creating a new post: ", error);
+      });
   };
 
   if (createId) {
     return <Redirect to={`/${createId}`} />;
-  };
+  }
 
   return (
-    <div>
-      <h2>Write your post below</h2>
+    <Container fluid>
+      <h1 className="mt-1">Write your post below:</h1>
       <form onSubmit={formSubmitHandler}>
-        <textarea type="text" id="new-post" rows="4" onChange={(e) => setNewText(e.target.value)} />
-        <br />
-        <button type="submit">Submit</button>
+        <FloatingLabel className="mb-3" controlId="floatingTextarea" label="Add to the cesspool:">
+          <Form.Control as="textarea" style={{ height: "500px" }} onChange={(e) => setNewText(e.target.value)} />
+        </FloatingLabel>
+
+        <div className="d-grid gap-2">
+          <Button className="mb-3" variant="success" type="submit">
+            Submit
+          </Button>
+        </div>
       </form>
-    </div>
+    </Container>
   );
 };
 
