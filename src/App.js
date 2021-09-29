@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="page-container">
       <div className="content-wrap">
-        <Navbar bg="dark" variant="dark">
+        <Navbar bg="dark" variant="dark" sticky="top" >
           <LinkContainer to="/">
             <Navbar.Brand>Fancy Blog</Navbar.Brand>
           </LinkContainer>
