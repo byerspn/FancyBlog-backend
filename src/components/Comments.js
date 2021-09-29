@@ -5,7 +5,16 @@ import { APIURL } from "../config.js";
 import NewComment from "./NewComment.js";
 import Buttons from "./Buttons.js";
 
-import { Button, Card, Container } from "react-bootstrap";
+// Style
+import { 
+  Button, 
+  Card, 
+  Container, 
+  ButtonToolbar, 
+  ButtonGroup, 
+  ListGroup, 
+  ListGroupItem 
+} from "react-bootstrap";
 
 const Comments = ({ match, posts, setPosts }) => {
   const [error, setError] = useState(false);
@@ -29,35 +38,43 @@ const Comments = ({ match, posts, setPosts }) => {
 
   if (error) {
     return <div>There was a problem getting the data.</div>;
-  }
+  };
 
   if (!post) {
     return <div>Loading...</div>;
-  }
+  };
 
   return (
     <Container fluid>
-      <Card className="mt-3 mb-3">
+      <Card className="mt-3 mb-3 shadow">
         <Card.Body>
-          <p style={{ fontSize: "19px" }}>{post.text}</p>
-
-          <div>
-            <Buttons post={post} posts={posts} setPosts={setPosts} />
-            <Button variant="outline-info" className="mb-3" onClick={handleComment}>
-              New Comment
-            </Button>
-            {!newComment ? null : <NewComment post={post} setPost={setPost} setNewComment={setNewComment} />}
-          </div>
+          <Card.Text className="fs-5" >{post.text}</Card.Text>
+          <ButtonToolbar className="d-flex justify-content-around">
+            <ButtonGroup>
+              <Button 
+                variant="outline-info" 
+                className="mb-3" 
+                onClick= {handleComment}
+              >
+                New Comment
+              </Button>
+            </ButtonGroup>
+            <Buttons 
+              post={post} 
+              posts={posts} 
+              setPosts={setPosts} 
+            />
+          </ButtonToolbar>
+          {!newComment ? null : <NewComment post={post} setPost={setPost} setNewComment={setNewComment} />}
           <hr />
-
-          <p style={{ fontSize: "19px" }}>Comments: </p>
-          <ol>
+          <Card.Title className="text-center">Comments </Card.Title>
+          <ListGroup className="list-group-flush">
             {post.comments.map((comment, idx) => (
-              <li key={idx}>{comment}</li>
+              <ListGroupItem key={idx}>{comment}</ListGroupItem>
             ))}
-          </ol>
+          </ListGroup>
         </Card.Body>
-        <Card.Footer>{post.createdAt}</Card.Footer>
+        <Card.Footer className="d-flex justify-content-end">{post.createdAt}</Card.Footer>
       </Card>
     </Container>
   );

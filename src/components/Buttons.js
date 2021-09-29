@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Redirect } from "react-router-dom";
 import { APIURL } from "../config.js";
 
+// Style
 import { Button, ButtonGroup } from "react-bootstrap";
 
 const Buttons = ({ post, posts, setPosts }) => {
@@ -76,7 +77,7 @@ const Buttons = ({ post, posts, setPosts }) => {
       //   <Link push to="/">Return home</Link>
       // </div>
     );
-  }
+  };
 
   return (
     <div>
