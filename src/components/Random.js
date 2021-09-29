@@ -1,11 +1,18 @@
+import { Redirect } from "react-router-dom";
 
 
 
+const Random = ({ posts }) => {
 
-const Random = () => {
+  const getRandomPostId = () => {
+    let randomIdx = Math.floor(Math.random() * posts.length)
+    let randomPost = posts[randomIdx]
+    return randomPost._id
+  }
+
   return (
-    <div>random</div>
+    <Redirect to={`/${getRandomPostId()}`} />
   )
-}
+};
 
-export default Random
+export default Random;

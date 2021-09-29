@@ -60,17 +60,33 @@ function App() {
           </Nav>
         </Navbar>
         <Switch>
-          <Route exact path="/" render={() => <Home posts={posts} setPosts={setPosts} />} />
-          <Route exact path="/new" render={() => <NewPostForm posts={posts} setPosts={setPosts} />} />
-          <Route path="/random" component={Random} />
+          <Route exact path="/" render={() => 
+            <Home 
+              posts={posts} 
+              setPosts={setPosts} 
+            />}
+          />
+          <Route exact path="/new" render={() =>
+              <NewPostForm 
+                posts={posts} 
+                setPosts={setPosts} 
+              />} 
+          />
+          <Route path="/random" render={() => 
+            <Random posts={posts} />
+          } />
           <Route exact path="/about" component={About} />
           <Route
             exact
             path="/:id"
-            render={({ match }) => <Comments match={match} posts={posts} setPosts={setPosts} />}
+            render={({ match }) => 
+              <Comments 
+              match={match} 
+              posts={posts} 
+              setPosts={setPosts} 
+              />
+            }
           />
-          <Route exact path="/about" component={About} />
-          
         </Switch>
       </div>
       <Footer />
