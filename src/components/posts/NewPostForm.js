@@ -35,7 +35,7 @@ const NewPostForm = ({ posts, setPosts }) => {
 
   return (
     <Container fluid>
-      <h1 className="mt-1">Write your post below:</h1>
+      <h1 className="mt-1 text-center">Write your post below</h1>
       <form onSubmit={formSubmitHandler}>
         <FloatingLabel className="mb-3" controlId="floatingTextarea" label="Add to the cesspool:">
           <Form.Control as="textarea" style={{ height: "500px" }} onChange={(e) => setNewText(e.target.value)} />

@@ -1,10 +1,11 @@
-import { Container } from "react-bootstrap"
+import { Container } from "react-bootstrap";
 
 const Footer = () => {
   return (
     <Container 
-      fluid 
+      fluid
       className="
+        fixed-bottom
         text-center 
         p-1 
         bg-dark 

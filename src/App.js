@@ -12,7 +12,7 @@ import Random from "./components/Random";
 
 // Style
 import { LinkContainer } from "react-router-bootstrap";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -28,8 +28,7 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <div>
+      <main>
         <Navbar 
           className="p-2"
           bg="dark" 
@@ -59,39 +58,40 @@ function App() {
             </LinkContainer>            
           </Nav>
         </Navbar>
-        <Switch>
-          <Route exact path="/" render={() => 
-            <Home 
-              posts={posts} 
-              setPosts={setPosts} 
-            />}
-          />
-          <Route exact path="/new" render={() =>
-              <NewPostForm 
+        <Container >
+          <Switch>
+            <Route exact path="/" render={() => 
+              <Home 
                 posts={posts} 
                 setPosts={setPosts} 
-              />} 
-          />
-          <Route path="/random" render={() => 
-            <Random posts={posts} />
-          } />
-          <Route exact path="/about" component={About} />
-          <Route
-            exact
-            path="/:id"
-            render={({ match }) => 
-              <Comments 
-              match={match} 
-              posts={posts} 
-              setPosts={setPosts} 
-              />
-            }
-          />
-        </Switch>
-      </div>
-      <Footer />
-    </div> 
+              />}
+            />
+            <Route exact path="/new" render={() =>
+                <NewPostForm 
+                  posts={posts} 
+                  setPosts={setPosts} 
+                />} 
+            />
+            <Route path="/random" render={() => 
+              <Random posts={posts} />
+            } />
+            <Route exact path="/about" component={About} />
+            <Route
+              exact
+              path="/:id"
+              render={({ match }) => 
+                <Comments 
+                match={match} 
+                posts={posts} 
+                setPosts={setPosts} 
+                />
+              }
+            />
+          </Switch>
+      </Container>
+      <Footer />     
+      </main>      
   );
-}
+};
 
 export default App;
