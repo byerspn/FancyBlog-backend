@@ -1,13 +1,14 @@
-import Post from './Post.js';
+import Post from "./Post.js";
+
+import { Container } from "react-bootstrap";
 
 const Home = ({ posts, setPosts }) => {
-
   return (
-    <ul>
+    <Container fluid>
       {posts.map((post, idx) => (
         <Post key={idx} post={post} posts={posts} setPosts={setPosts} />
       ))}
-    </ul>
+    </Container>
   );
 };
 
