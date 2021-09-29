@@ -3,16 +3,17 @@ import { Link } from "react-router-dom";
 // Components
 import Buttons from "./Buttons";
 
-const Post = ({ post, posts, setPosts }) => {
+import { Card } from "react-bootstrap";
 
+const Post = ({ post, posts, setPosts }) => {
   return (
-    <li>
-      <p>{post.text}</p>
-      <div>
+    <Card className="text-center">
+      <Card.Body>
+        <p style={{ fontSize: "19px" }}>{post.text}</p>
         <Buttons post={post} posts={posts} setPosts={setPosts} />
         <Link to={`/${post._id}`}>Comments</Link>
-      </div>
-    </li>
+      </Card.Body>
+    </Card>
   );
 };
 
