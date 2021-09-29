@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Redirect } from "react-router";
 import { APIURL } from "../config"
 
-const NewComment = ({ post, setPost }) => {
+const NewComment = ({ post, setPost, setNewComment }) => {
 
   const [comment, setComment] = useState('');
   const [createdId, setCreatedId] = useState(null);
@@ -32,6 +32,7 @@ const NewComment = ({ post, setPost }) => {
         setPost(data)
         setCreatedId(data._id)})
       .catch((error) => { console.error('There was an issue updating the post: ', error) })
+      .then(setNewComment(false));
   };
 
   if (createdId) {

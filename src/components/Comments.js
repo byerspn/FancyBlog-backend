@@ -22,7 +22,8 @@ const Comments = ({ match, posts, setPosts }) => {
   }, [match.params.id]);
 
   const handleComment = () => {
-    setNewComment(true);
+    let state = newComment
+    setNewComment(!state);
   };
 
   if (error) {
@@ -44,7 +45,7 @@ const Comments = ({ match, posts, setPosts }) => {
       <div>
         <Buttons post={post} posts={posts} setPosts={setPosts} />
         <button onClick={handleComment}>New Comment</button>
-        {!newComment ? null : <NewComment post={post} setPost={setPost} />}
+        {!newComment ? null : <NewComment post={post} setPost={setPost} setNewComment={setNewComment} />}
       </div>
     </div>
   );
