@@ -80,7 +80,7 @@ const Buttons = ({ post, posts, setPosts }) => {
 
   return (
     <div>
-      <ButtonGroup className="mb-2">
+      <ButtonGroup className="mb-3">
         <Button variant="primary" onClick={likePost}>{`Yays: ${likes}`}</Button>
         <Button variant="danger" onClick={dislikePost}>{`Nays: ${dislikes}`}</Button>
       </ButtonGroup>

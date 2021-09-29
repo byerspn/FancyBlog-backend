@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Redirect } from "react-router";
 import { APIURL } from "../config";
 
-import { Button } from "react-bootstrap";
+import { Button, FloatingLabel, Form } from "react-bootstrap";
 
 const NewComment = ({ post, setPost, setNewComment }) => {
   const [comment, setComment] = useState("");
@@ -45,11 +45,12 @@ const NewComment = ({ post, setPost, setNewComment }) => {
 
   return (
     <div>
-      <h2>New Comment</h2>
       <form onSubmit={handleSubmit}>
-        <textarea type="text" id="newComment" rows="3" cols="30" onChange={(e) => setComment(e.target.value)} />
-        <br />
-        <Button variant="success" type="submit">
+        <FloatingLabel className="mb-3" controlId="floatingTextarea" label="Add to the discussion:">
+          <Form.Control as="textarea" style={{ height: "100px" }} onChange={(e) => setComment(e.target.value)} />
+        </FloatingLabel>
+
+        <Button className="mb-1" variant="success" type="submit">
           Submit
         </Button>
       </form>
