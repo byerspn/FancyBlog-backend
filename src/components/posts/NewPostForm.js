@@ -1,40 +1,45 @@
 import { useState } from "react";
-import { useHistory } from "react-router";
+import { Redirect } from "react-router";
 import { APIURL } from "../../config";
 
-function NewPostForm({ addPost }) {
-  const [text, setText] = useState("");
+const NewPostForm = ({ posts, setPosts }) => {
 
-  // const history = useHistory();
+  const [newText, setNewText] = useState("");
+  const [createId, setCreateId] = useState(null);
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
     const newPost = {
-      text
+      text: newText
     };
-    addPost(newPost);
 
     fetch(`${APIURL}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newPost)
-    }).then(() => {
-      console.log("New post added");
-    });
+    })
+      .then(res => res.json())
+      .then(data => {
+        setPosts([...posts, data])
+        setCreateId(data._id)
+      })
+      .catch((error) => { console.error('There was an issue creating a new post: ', error) });
+  };
 
-    // history.push("/");
+  if (createId) {
+    return <Redirect to={`/${createId}`} />;
   };
 
   return (
     <div>
       <h2>Write your post below</h2>
       <form onSubmit={formSubmitHandler}>
-        <textarea type="text" id="new-post" rows="4" onChange={(e) => setText(e.target.value)} />
+        <textarea type="text" id="new-post" rows="4" onChange={(e) => setNewText(e.target.value)} />
         <br />
         <button type="submit">Submit</button>
       </form>
     </div>
   );
-}
+};
 
 export default NewPostForm;
