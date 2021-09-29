@@ -13,6 +13,7 @@ const Comments = ({ match, posts, setPosts }) => {
   const [newComment, setNewComment] = useState(false);
 
   useEffect(() => {
+    console.log(match.params.id)
     const url = `${APIURL}/${match.params.id}`;
     fetch(url)
       .then((response) => response.json())

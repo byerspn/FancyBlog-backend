@@ -2,24 +2,20 @@ import { Route, Switch } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { APIURL } from "./config";
 
-import "./App.css";
-
 // Components
 import Home from "./components/Home";
 import Comments from "./components/Comments";
 import About from "./components/About";
 import Footer from "./components/Footer";
 import NewPostForm from "./components/posts/NewPostForm.js";
+import Random from "./components/Random";
 
 // Style
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav } from "react-bootstrap";
-import "./App.css";
 
 function App() {
   const [posts, setPosts] = useState([]);
-
-  console.log(posts);
 
   useEffect(() => {
     const url = `${APIURL}`;
@@ -51,7 +47,7 @@ function App() {
               Ventilation System Anonymous
             </Navbar.Brand>
           </LinkContainer>
-          <Nav className="">
+          <Nav>
             <LinkContainer to="/random">
               <Nav.Link>Random</Nav.Link>
             </LinkContainer>
@@ -66,16 +62,19 @@ function App() {
         <Switch>
           <Route exact path="/" render={() => <Home posts={posts} setPosts={setPosts} />} />
           <Route exact path="/new" render={() => <NewPostForm posts={posts} setPosts={setPosts} />} />
+          <Route path="/random" component={Random} />
+          <Route exact path="/about" component={About} />
           <Route
             exact
             path="/:id"
             render={({ match }) => <Comments match={match} posts={posts} setPosts={setPosts} />}
           />
           <Route exact path="/about" component={About} />
+          
         </Switch>
       </div>
       <Footer />
-    </div>
+    </div> 
   );
 }
 
