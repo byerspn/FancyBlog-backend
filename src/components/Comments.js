@@ -44,7 +44,7 @@ const Comments = ({ match, posts, setPosts }) => {
       <div>
         <Buttons post={post} posts={posts} setPosts={setPosts} />
         <button onClick={handleComment}>New Comment</button>
-        {!newComment ? null : <NewComment post={post} />}
+        {!newComment ? null : <NewComment post={post} setPost={setPost} />}
       </div>
     </div>
   );

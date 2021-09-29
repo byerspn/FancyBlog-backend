@@ -1,14 +1,16 @@
 import { useState } from "react"
+import { Redirect } from "react-router";
 import { APIURL } from "../config"
 
-const NewComment = ({ post }) => {
+const NewComment = ({ post, setPost }) => {
 
   const [comment, setComment] = useState('');
+  const [createdId, setCreatedId] = useState(null);
 
   const handleSubmit = (event) => {
+    event.preventDefault();
 
-    if (comment.length === 0) {
-      event.preventDefault()
+    if (comment.length === 0) {      
       return false
     };
 
@@ -26,7 +28,14 @@ const NewComment = ({ post }) => {
       body: JSON.stringify(putComment)
     })
       .then(res => res.json())
+      .then(data => {
+        setPost(data)
+        setCreatedId(data._id)})
       .catch((error) => { console.error('There was an issue updating the post: ', error) })
+  };
+
+  if (createdId) {
+    return <Redirect to={`/${createdId}`} />;
   };
 
   return (
