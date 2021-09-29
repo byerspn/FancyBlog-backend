@@ -1,35 +1,14 @@
-import { useState, useEffect } from 'react'
-import { APIURL } from '../config.js'
+import Post from './Post.js';
 
-import Post from './Post.js'
-
-
-const Home = () => {
-
-  const [posts, setPosts] = useState([])
-  const [error, setError] = useState(false)
-
-  useEffect(() => {
-    fetch(`${APIURL}`)
-      .then(res => res.json())
-      .then(data => {
-        setPosts(data)})
-      .catch(() => setError(true))
-  }, [])
-
-  if (error) {
-    return <div>There was an error getting the data.</div>
-  }
+const Home = ({ posts, setPosts }) => {
 
   return (
     <ul>
-      {posts.map(post => (
-        <li key={post._id}>
-          <Post post={post} />
-        </li>
+      {posts.map((post, idx) => (
+        <Post key={idx} post={post} posts={posts} setPosts={setPosts} />
       ))}
     </ul>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

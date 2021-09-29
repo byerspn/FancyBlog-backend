@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
 
-const Post = ({ post }) => {
+// Components
+import Buttons from "./Buttons";
+
+const Post = ({ post, posts, setPosts }) => {
+
   return (
-    <div>
+    <li>
       <p>{post.text}</p>
       <div>
-        <button>Likes</button>
-        <button>Disikes</button>
+        <Buttons post={post} posts={posts} setPosts={setPosts} />
         <Link to={`/${post._id}`}>Comments</Link>
       </div>
-    </div>
+    </li>
   );
 };
 
