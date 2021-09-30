@@ -1,6 +1,5 @@
 import { Redirect } from "react-router-dom";
 
-/*
 const Random = ({ posts }) => {
 
   const getRandomPostId = () => {
@@ -15,5 +14,3 @@ const Random = ({ posts }) => {
 };
 
 export default Random;
-
-*/
