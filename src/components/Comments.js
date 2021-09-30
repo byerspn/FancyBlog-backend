@@ -17,6 +17,7 @@ import {
 } from "react-bootstrap";
 
 const Comments = ({ match, posts, setPosts }) => {
+  
   const [error, setError] = useState(false);
   const [post, setPost] = useState(null);
   const [newComment, setNewComment] = useState(false);
@@ -83,7 +84,7 @@ const Comments = ({ match, posts, setPosts }) => {
             ))}
           </ListGroup>
         </Card.Body>
-        <Card.Footer className="d-flex justify-content-end">{post.createdAt}</Card.Footer>
+        <Card.Footer className="d-flex justify-content-end">{`Created: ${post.createdAt}`}</Card.Footer>
       </Card>
     </Container>
   );
