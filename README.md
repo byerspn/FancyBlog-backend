@@ -1,6 +1,7 @@
 # Fancy Blog Front-end
 
 ## Description
+- In a dis
 - what the app does and why (DELETE ME)
 - need a screen shot (DELETE ME)
 
