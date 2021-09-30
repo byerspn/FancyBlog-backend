@@ -22,9 +22,10 @@ Too many Nays deletes the post, a self-policing policy!
 - React Bootstrap
 
 ## Installation Instructions
-To install locally:
+To locally install and run:
 ```
-npm i
+npm install
+npm start
 ```
 
 ## Problems
