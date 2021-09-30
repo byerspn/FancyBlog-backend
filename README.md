@@ -30,7 +30,6 @@ npm start
 
 ## Problems
 - Going back to Homepage from Show page always goes back to the top.
-- Error: when post is deleted, user can still submit a comment && toggle likes/dislikes causing an error to be returned.
 
 ## Members 
 - Joshua Aguiar [jaaguil2](https://github.com/jaaguil2)
