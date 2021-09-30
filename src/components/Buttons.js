@@ -1,16 +1,12 @@
-import { useState } from "react";
-import { Redirect } from "react-router-dom";
 import { APIURL } from "../config.js";
 
 // Style
 import { Button, ButtonGroup } from "react-bootstrap";
 
 const Buttons = ({ post, posts, setPost, setPosts }) => {
-  const [likes, setLikes] = useState(() => post.likes);
-  const [dislikes, setDisikes] = useState(() => post.dislikes);
-  // const [postDeleted, setPostDeleted] = useState(false);
 
   const likePost = () => {
+    let newPosts
     let updatedPost = post;
     updatedPost.likes++;
     fetch(`${APIURL}/${post._id}`, {
@@ -25,10 +21,15 @@ const Buttons = ({ post, posts, setPost, setPosts }) => {
       body: JSON.stringify(updatedPost)
     })
       .then((response) => response.json())
-      .then((res) => setLikes(res.likes))
+      .then((res) => {
+        newPosts = [...posts]
+        let idx = newPosts.indexOf(post)
+        newPosts.splice(idx, 1, res)
+      })
       .catch((error) => {
         console.error("There was an issue updating the post: ", error);
-      });
+      })
+      .then(() => setPosts(newPosts))
   };
 
   const dislikePost = () => {
@@ -41,7 +42,12 @@ const Buttons = ({ post, posts, setPost, setPosts }) => {
         .then((response) => response.json())
         .then((res) => {
           newPosts = posts.filter((e) => e._id !== res._id);
-          setPost({text: 'This post was deleted for being nayed too much.', comments: ['The comments were deleted too.']});
+          setPost({
+            text: 'This post was deleted for being nayed too much.', 
+            comments: ['The comments were deleted too.'],
+            likes: 0,
+            dislikes: 0
+          });
         })
         .catch((error) => {
           console.error("There was an issue updating the post: ", error);
@@ -62,18 +68,23 @@ const Buttons = ({ post, posts, setPost, setPosts }) => {
         body: JSON.stringify(updatedPost)
       })
         .then((response) => response.json())
-        .then((res) => setDisikes(res.dislikes))
+        .then((res) => {
+          newPosts = [...posts]
+          let idx = newPosts.indexOf(post)          
+          newPosts.splice(idx, 1, res)
+        })
         .catch((error) => {
           console.error("There was an issue updating the post: ", error);
-        });
-    }
+        })
+        .then(() => setPosts(newPosts))
+    };
   };
 
   return (
     <div>
       <ButtonGroup className="mb-3">
-        <Button variant="primary" onClick={likePost}>{`Yays: ${likes}`}</Button>
-        <Button variant="danger" onClick={dislikePost}>{`Nays: ${dislikes}`}</Button>
+        <Button variant="primary" onClick={likePost}>{`Yays: ${post.likes}`}</Button>
+        <Button variant="danger" onClick={dislikePost}>{`Nays: ${post.dislikes}`}</Button>
       </ButtonGroup>
     </div>
   );
