@@ -9,7 +9,6 @@ Scroll through the many venting posts and give them a Yay or Nay.
 Leave a comment on your favorite posts.
 Too many Nays deletes the post, a self-policing policy!
 
->>>>>>> e76b924aae0c7ed510e7b99927cd9834a387521d
 - need a screen shot (DELETE ME)
 
 ## Technologies
