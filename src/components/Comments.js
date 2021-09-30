@@ -13,11 +13,11 @@ import {
   ButtonToolbar, 
   ButtonGroup, 
   ListGroup, 
-  ListGroupItem 
+  ListGroupItem
 } from "react-bootstrap";
 
 const Comments = ({ match, posts, setPosts }) => {
-  
+
   const [error, setError] = useState(false);
   const [post, setPost] = useState(null);
   const [newComment, setNewComment] = useState(false);
@@ -32,10 +32,10 @@ const Comments = ({ match, posts, setPosts }) => {
       });
   }, [match.params.id]);
 
-  const handleComment = () => {
-    let state = newComment;
-    setNewComment(!state);
-  };
+  // const handleComment = () => {
+  //   let state = newComment;
+  //   setNewComment(!state);
+  // };
 
   if (error) {
     return <div>There was a problem getting the data.</div>;
@@ -63,7 +63,7 @@ const Comments = ({ match, posts, setPosts }) => {
               <Button 
                 variant="outline-info" 
                 className="mb-3" 
-                onClick= {handleComment}
+                onClick= {() => setNewComment(!newComment)}
               >
                 New Comment
               </Button>
