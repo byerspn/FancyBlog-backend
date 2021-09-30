@@ -29,6 +29,7 @@ const Post = ({ post, posts, setPosts }) => {
           <Buttons 
             post={post} 
             posts={posts} 
+            setPost={() => null}
             setPosts={setPosts} 
           />
         </ButtonToolbar>
