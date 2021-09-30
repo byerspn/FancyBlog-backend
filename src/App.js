@@ -52,7 +52,7 @@ function App() {
               <Nav.Link>Random</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/new">
-              <Nav.Link>Add New Post</Nav.Link>
+              <Nav.Link>Post</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/about">
               <Nav.Link>About</Nav.Link>
