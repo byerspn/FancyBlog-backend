@@ -41,7 +41,15 @@ const Comments = ({ match, posts, setPosts }) => {
   };
 
   if (!post) {
-    return <div>Loading...</div>;
+    return (
+    <Container fluid>
+      <Card className="mt-3 mb-3 shadow">
+        <Card.Body>
+          <Card.Text className="fs-5" >This post does not exist. It may have been deleted for being nayed too much.</Card.Text>
+        </Card.Body>
+      </Card>
+    </Container>
+    )
   };
 
   return (
@@ -63,6 +71,7 @@ const Comments = ({ match, posts, setPosts }) => {
               post={post} 
               posts={posts} 
               setPosts={setPosts} 
+              setPost={setPost}
             />
           </ButtonToolbar>
           {!newComment ? null : <NewComment post={post} setPost={setPost} setNewComment={setNewComment} />}

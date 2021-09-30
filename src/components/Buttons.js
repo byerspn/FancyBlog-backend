@@ -5,10 +5,10 @@ import { APIURL } from "../config.js";
 // Style
 import { Button, ButtonGroup } from "react-bootstrap";
 
-const Buttons = ({ post, posts, setPosts }) => {
+const Buttons = ({ post, posts, setPost, setPosts }) => {
   const [likes, setLikes] = useState(() => post.likes);
   const [dislikes, setDisikes] = useState(() => post.dislikes);
-  const [postDeleted, setPostDeleted] = useState(false);
+  // const [postDeleted, setPostDeleted] = useState(false);
 
   const likePost = () => {
     let updatedPost = post;
@@ -41,7 +41,7 @@ const Buttons = ({ post, posts, setPosts }) => {
         .then((response) => response.json())
         .then((res) => {
           newPosts = posts.filter((e) => e._id !== res._id);
-          setPostDeleted(true);
+          setPost({text: 'This post was deleted for being nayed too much.', comments: ['The comments were deleted too.']});
         })
         .catch((error) => {
           console.error("There was an issue updating the post: ", error);
@@ -67,16 +67,6 @@ const Buttons = ({ post, posts, setPosts }) => {
           console.error("There was an issue updating the post: ", error);
         });
     }
-  };
-
-  if (postDeleted) {
-    return (
-      <Redirect to="/" />
-      // <div>
-      //   <p>This post has been deleted for having too poor of a <em>like:dislike</em> ratio.</p>
-      //   <Link push to="/">Return home</Link>
-      // </div>
-    );
   };
 
   return (
