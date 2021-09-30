@@ -45,7 +45,7 @@ const Comments = ({ match, posts, setPosts }) => {
     <Container fluid>
       <Card className="mt-3 mb-3 shadow">
         <Card.Body>
-          <Card.Text className="fs-5" >This post does not exist. It may have been deleted for being nayed too much.</Card.Text>
+          <Card.Text className="fs-5 text-center" >This post does not exist. It may have been deleted for being nayed too much.</Card.Text>
         </Card.Body>
       </Card>
     </Container>
