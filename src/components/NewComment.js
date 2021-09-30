@@ -37,7 +37,7 @@ const NewComment = ({ post, setPost, setNewComment }) => {
       .catch((error) => {
         console.error("There was an issue updating the post: ", error);
       })
-      .then(setNewComment(false));
+      .then(() => setNewComment(false));
   };
 
   if (createdId) {

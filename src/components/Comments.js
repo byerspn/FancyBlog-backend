@@ -13,10 +13,11 @@ import {
   ButtonToolbar, 
   ButtonGroup, 
   ListGroup, 
-  ListGroupItem 
+  ListGroupItem
 } from "react-bootstrap";
 
 const Comments = ({ match, posts, setPosts }) => {
+
   const [error, setError] = useState(false);
   const [post, setPost] = useState(null);
   const [newComment, setNewComment] = useState(false);
@@ -31,11 +32,6 @@ const Comments = ({ match, posts, setPosts }) => {
       });
   }, [match.params.id]);
 
-  const handleComment = () => {
-    let state = newComment;
-    setNewComment(!state);
-  };
-
   if (error) {
     return <div>There was a problem getting the data.</div>;
   };
@@ -45,7 +41,7 @@ const Comments = ({ match, posts, setPosts }) => {
     <Container fluid>
       <Card className="mt-3 mb-3 shadow">
         <Card.Body>
-          <Card.Text className="fs-5" >This post does not exist. It may have been deleted for being nayed too much.</Card.Text>
+          <Card.Text className="fs-5 text-center" >This post does not exist. It may have been deleted for being nayed too much.</Card.Text>
         </Card.Body>
       </Card>
     </Container>
@@ -62,7 +58,7 @@ const Comments = ({ match, posts, setPosts }) => {
               <Button 
                 variant="outline-info" 
                 className="mb-3" 
-                onClick= {handleComment}
+                onClick= {() => setNewComment(!newComment)}
               >
                 New Comment
               </Button>
@@ -83,7 +79,7 @@ const Comments = ({ match, posts, setPosts }) => {
             ))}
           </ListGroup>
         </Card.Body>
-        <Card.Footer className="d-flex justify-content-end">{post.createdAt}</Card.Footer>
+        <Card.Footer className="d-flex justify-content-end">{`Created: ${post.createdAt}`}</Card.Footer>
       </Card>
     </Container>
   );
