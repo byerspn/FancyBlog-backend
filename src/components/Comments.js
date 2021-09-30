@@ -21,12 +21,19 @@ const Comments = ({ match, posts, setPosts }) => {
   const [error, setError] = useState(false);
   const [post, setPost] = useState(null);
   const [newComment, setNewComment] = useState(false);
+  const [title, setTitle] = useState('')
 
   useEffect(() => {
     const url = `${APIURL}/${match.params.id}`;
     fetch(url)
       .then((response) => response.json())
-      .then((data) => setPost(data))
+      .then((data) => {
+        setPost(data)
+        let text = data.text.split(" ")
+        let randomIdx = Math.floor(Math.random() * text.length)
+        let title = `${text[0]} ${text[randomIdx]} ${text[text.length-1]}` 
+        setTitle(title)
+        })
       .catch(() => {
         setError(true);
       });
@@ -52,6 +59,7 @@ const Comments = ({ match, posts, setPosts }) => {
     <Container fluid>
       <Card className="mt-3 mb-3 shadow">
         <Card.Body>
+          <Card.Title>{title}</Card.Title>
           <Card.Text className="fs-5" >{post.text}</Card.Text>
           <ButtonToolbar className="d-flex justify-content-around">
             <ButtonGroup>

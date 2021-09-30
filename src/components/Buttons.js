@@ -6,6 +6,9 @@ import { Button, ButtonGroup } from "react-bootstrap";
 const Buttons = ({ post, posts, setPost, setPosts }) => {
 
   const likePost = () => {
+    if (post.comments[0] === "The comments were deleted too.") {
+      return;
+    };
     let newPosts
     let updatedPost = post;
     updatedPost.likes++;
@@ -33,7 +36,10 @@ const Buttons = ({ post, posts, setPost, setPosts }) => {
   };
 
   const dislikePost = () => {
-    let newPosts;
+    if (post.comments[0] === "The comments were deleted too.") {
+      return;
+    };
+    let newPosts;    
     if (post.likes + post.dislikes > 10 && post.dislikes > post.likes * 2) {
       fetch(`${APIURL}/${post._id}`, {
         method: "DELETE", // put updates all keys in object
