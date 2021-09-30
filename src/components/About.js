@@ -29,16 +29,8 @@ const About = () => {
               understands what you’re going through and will provide support or feedback
               24/7 - Make friends and chat - Get things off your chest and have fun.
               <br />
-              Working together to keep the hays and nays alive and accessible,
-              so people worldwide can have quick access to a sysytem that allows
-              people to just let it all out.
               <br />
-              Read the{" "}
-              <a href="https://www.mozilla.org/en-US/about/manifesto/">
-                white paper
-              </a>{" "}
-              to learn even more about the values and principles of venting
-              after a long day or just towards the pursuit of hearing what
+              Vent after a long day or just enjoy hearing what
               others are going through.
               <br />
               <br />
