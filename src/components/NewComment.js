@@ -11,6 +11,10 @@ const NewComment = ({ post, setPost, setNewComment }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
+    if (post.comments[0] === "The comments were deleted too.") {
+      return;
+    };
 
     if (comment.length === 0) {
       return false;
