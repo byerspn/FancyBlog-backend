@@ -32,11 +32,6 @@ const Comments = ({ match, posts, setPosts }) => {
       });
   }, [match.params.id]);
 
-  // const handleComment = () => {
-  //   let state = newComment;
-  //   setNewComment(!state);
-  // };
-
   if (error) {
     return <div>There was a problem getting the data.</div>;
   };
