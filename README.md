@@ -11,7 +11,7 @@ Too many Nays deletes the post, a self-policing policy!
 
 [Link To Web Site](https://fancy-blog-frontend.herokuapp.com/)
 
-<img width="1000" alt="Screen Shot 2021-09-27 at 1 47 54 PM" src="https://user-images.githubusercontent.com/62955391/135525723-5432a29e-d175-4b46-a277-7a26235c9e32.png">
+<img width="1000" alt="Screen Shot 2021-09-27 at 1 47 54 PM" src="https://user-images.githubusercontent.com/62955391/135636963-addb1b08-f649-482d-a5d1-b2d846e7c3c4.png">
 
 ## Technologies
 - HTML
