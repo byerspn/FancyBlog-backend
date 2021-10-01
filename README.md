@@ -40,6 +40,10 @@ Go [here](https://github.com/Jo-Ivan/fancy-blog-api) for backend support.
 - Geraldo Grell [Jikjii](https://github.com/Jikjii)
 - Jo-Ivan Melgarejo [jo-ivan](https://github.com/Jo-Ivan)
 
+## Planning
+
+A link to the planning docs is [here](https://drive.google.com/drive/folders/1MNkhK64a5CQlxKesB9jmfNBd2szVu7WY?usp=sharing) for reference.
+
 ## Contribution Guidelines
 Send any and all inquires to one of the members above.
 
