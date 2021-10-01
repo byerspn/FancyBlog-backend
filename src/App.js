@@ -13,6 +13,11 @@ import Random from "./components/Random";
 // Style
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import './App.css';
+
+const style = {
+  "fontFamily": 'Overpass Mono'
+}
 
 function App() {
   
@@ -29,7 +34,7 @@ function App() {
   }, []);
 
   return (
-      <main>
+      <main style={style} >
         <Navbar 
           className="p-2"
           bg="dark" 
