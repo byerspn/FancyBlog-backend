@@ -14,7 +14,7 @@ const About = () => {
         <Card.Title className="mt-1 fs-1 text-center">Ventilation System Anonymous</Card.Title>
         <Card.Header>About</Card.Header>
         <Card.Body>
-          <Card.Subtitle>Did you know ...</Card.Subtitle>
+          <Card.Subtitle className="fw-bold">Did you know ...</Card.Subtitle>
           <Card.Text>
             On VSA, you’re never alone. Our whole community is just waiting to
             hear what you have to say. Join now and discover how much you have
@@ -27,12 +27,12 @@ const About = () => {
             Vent after a long day or just enjoy hearing what
             others are going through.
           </Card.Text>
-          <Card.Subtitle>Express yourself.</Card.Subtitle>
+          <Card.Subtitle className="fw-bold">Express yourself.</Card.Subtitle>
           <Card.Text>
             VSA is your canvas. like, comment, find random post. Make your own
             Anonymous post. Just let it all out.
           </Card.Text>
-          <Card.Subtitle>Be yourself.</Card.Subtitle>
+          <Card.Subtitle className="fw-bold">Be yourself.</Card.Subtitle>
           <Card.Text>
             Connect with your people. Join the community of people across the
             website. See something you love? Give it a YAY and start a
