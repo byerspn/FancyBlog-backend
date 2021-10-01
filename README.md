@@ -9,7 +9,7 @@ Scroll through the many venting posts and give them a Yay or Nay.
 Leave a comment on your favorite posts.
 Too many Nays deletes the post, a self-policing policy!
 
-[Link To Webpage](https://fancy-blog-frontend.herokuapp.com/)
+[Link To Web Site](https://fancy-blog-frontend.herokuapp.com/)
 
 <img width="1000" alt="Screen Shot 2021-09-27 at 1 47 54 PM" src="https://user-images.githubusercontent.com/62955391/135525723-5432a29e-d175-4b46-a277-7a26235c9e32.png">
 
